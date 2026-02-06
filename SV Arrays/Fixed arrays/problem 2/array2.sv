@@ -1,24 +1,21 @@
 
 //create a 3d array of size (R,C,H), declare it and print each element
 module array2;
-
-  int element[2][2][2];
+  
+  int arr[3][3][3];
 
   initial begin
-    
-    arr[0][0][0] = 1;
-    arr[0][0][1] = 2;
-    arr[0][1][0] = 3;
-    arr[0][1][1] = 4;
+    arr = '{
+      '{ '{1, 2,3}, '{3, 5, 6},'{7,8,9} },
+      '{ '{10, 11,12}, '{13, 14,15},'{16,17,18} },
+      '{'{19,20,21},'{22,23,24},'{25,26,27}}
+    };
 
-    arr[1][0][0] = 5;
-    arr[1][0][1] = 6;
-    arr[1][1][0] = 7;
-    arr[1][1][1] = 8;
-
-    for (int i = 0; i < 2; i++)
-      for (int j = 0; j < 2; j++)
-        for (int k = 0; k < 2; k++)
-          $display("arr[%0d][%0d][%0d] = %0d",i, j, k, arr[i][j][k]);
+    foreach (arr[i][j][k]) begin
+      $display("arr[%0d][%0d][%0d] = %0d",
+                i, j, k, arr[i][j][k]);
+    end
   end
+
 endmodule
+
