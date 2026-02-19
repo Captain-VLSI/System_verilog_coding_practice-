@@ -1,0 +1,24 @@
+module queue_simple;
+  int q[$];
+  int data;
+
+  initial begin
+    q.push_back(10);
+    q.push_back(20);
+    q.push_front(5);
+
+    $display("Queue: %p", q);
+
+    data = q.pop_front();
+    $display("popped: %0d, queue: %p", data, q);
+
+    q.insert(1, 15);
+    $display("after insert: %p", q);
+
+    q.delete(0);
+    $display("after delete: %p", q);
+
+    q.delete();
+    $display("final Size: %0d", q.size());
+  end
+endmodule
